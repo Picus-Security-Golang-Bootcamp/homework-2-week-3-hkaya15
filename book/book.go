@@ -1,6 +1,8 @@
 package book
 
 import (
+	"fmt"
+
 	"github.com/hkaya15/PicusSecurity/Week_3_Homework/author"
 )
 
@@ -40,4 +42,8 @@ func (b Book) SearchById(id int) Book{
 
 func (b Book) SearchByName(name string) []Book{
 	return []Book{}
+}
+
+func (b Book) Delete(id int){
+	fmt.Println(b)
 }

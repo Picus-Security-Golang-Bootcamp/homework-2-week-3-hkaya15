@@ -5,5 +5,6 @@ type IProduct interface {
 	GetList() []IProduct
 	SearchById(id int) IProduct
 	SearchByName(name string) []IProduct
+	Delete(id int)
 }
 
