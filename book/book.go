@@ -47,3 +47,7 @@ func (b Book) SearchByName(name string) []Book{
 func (b Book) Delete(id int){
 	fmt.Println(b)
 }
+
+func (b Book) Buy(id int) Book{
+	return b
+}
