@@ -1,14 +1,9 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/hkaya15/PicusSecurity/Week_3_Homework/book"
+	"github.com/hkaya15/PicusSecurity/Week_3_Homework/ui"
 )
 
 func main() {
-	bookCreation := book.Book{Name: "HK"}
-	x := bookCreation.GetList()
-	fmt.Println(x)
-
+	ui.GetUI()
 }
