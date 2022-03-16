@@ -33,3 +33,7 @@ func (b Book) Create() Book {
 func (b Book) GetList() []Book {
 	return bookList
 }
+
+func (b Book) SearchById(id int) Book{
+	return b
+}
