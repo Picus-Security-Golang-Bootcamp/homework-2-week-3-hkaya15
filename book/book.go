@@ -2,6 +2,7 @@ package book
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hkaya15/PicusSecurity/Week_3_Homework/author"
 )
@@ -45,7 +46,15 @@ func (b Book) SearchById(id int) Book{
 }
 
 func (b Book) SearchByName(name string) []Book{
-	return []Book{}
+	newBookList:= []Book{}
+	for _,v:=range bookList{
+		lowerBookName:=strings.ToLower(v.Name)
+		lowerName:=strings.ToLower(name)
+		if strings.Contains(lowerBookName,lowerName){
+			newBookList = append(newBookList, v)
+		}
+	}
+	return newBookList
 }
 
 func (b Book) Delete(id int){
