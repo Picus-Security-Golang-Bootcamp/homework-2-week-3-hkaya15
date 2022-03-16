@@ -36,6 +36,10 @@ func (b Book) GetList() []Book {
 	return bookList
 }
 
+func (b Book) AddList(){
+	bookList = append(bookList, b)
+}
+
 func (b Book) SearchById(id int) Book{
 	return b
 }
