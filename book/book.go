@@ -37,3 +37,7 @@ func (b Book) GetList() []Book {
 func (b Book) SearchById(id int) Book{
 	return b
 }
+
+func (b Book) SearchByName(name string) []Book{
+	return []Book{}
+}
