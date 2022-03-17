@@ -76,6 +76,22 @@ func (b Book) DeleteById(id int) {
 	fmt.Println("Yeni Liste:", bookList)
 }
 
-func (b Book) Buy(id int) Book {
-	return b
+func (b Book) BuyById(id int, count int) {
+	var updatedBook *Book
+	for i,v := range bookList{
+		if v.BookID==id{
+			result:=v.StockCount-count
+			if result>=0{
+				v.StockCount=result
+				updatedBook=&v
+				bookList[i]=*updatedBook
+				break
+			}
+			fmt.Println("Yeterli sayıda kitap bulunmamaktadır")
+		}
+	}
+	if updatedBook != nil{
+		fmt.Println(*updatedBook)
+	}
+	
 }

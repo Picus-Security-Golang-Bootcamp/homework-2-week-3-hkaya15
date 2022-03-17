@@ -7,5 +7,5 @@ import (
 func main() {
 	//ui.GetUI()
 	book1 := book.Book{}
-	book1.DeleteById(4)
+	book1.BuyById(4,22)
 }

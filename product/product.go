@@ -7,6 +7,5 @@ type IProduct interface {
 	SearchById(id int) IProduct
 	SearchByName(name string) []IProduct
 	DeleteById(id int)
-	Buy(id int) IProduct
+	BuyById(id int, count int) 
 }
-
