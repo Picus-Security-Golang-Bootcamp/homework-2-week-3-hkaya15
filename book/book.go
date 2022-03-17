@@ -42,7 +42,13 @@ func (b Book) AddList(){
 }
 
 func (b Book) SearchById(id int) Book{
-	return b
+	var selectedBook Book
+	for _,v:=range bookList{
+		if v.BookID==id{
+			selectedBook=v
+		}
+	}
+	return selectedBook
 }
 
 func (b Book) SearchByName(name string) []Book{

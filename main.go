@@ -9,5 +9,5 @@ import (
 func main() {
 	//ui.GetUI()
 	book1 := book.Book{}
-	fmt.Println(book1.SearchByName("a"))
+	fmt.Println(book1.SearchById(41))
 }
