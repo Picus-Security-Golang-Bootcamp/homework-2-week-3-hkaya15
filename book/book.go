@@ -37,36 +37,45 @@ func (b Book) GetList() []Book {
 	return bookList
 }
 
-func (b Book) AddList(){
+func (b Book) AddList() {
 	bookList = append(bookList, b)
 }
 
-func (b Book) SearchById(id int) Book{
+func (b Book) SearchById(id int) Book {
 	var selectedBook Book
-	for _,v:=range bookList{
-		if v.BookID==id{
-			selectedBook=v
+	for _, v := range bookList {
+		if v.BookID == id {
+			selectedBook = v
 		}
 	}
 	return selectedBook
 }
 
-func (b Book) SearchByName(name string) []Book{
-	newBookList:= []Book{}
-	for _,v:=range bookList{
-		lowerBookName:=strings.ToLower(v.Name)
-		lowerName:=strings.ToLower(name)
-		if strings.Contains(lowerBookName,lowerName){
+func (b Book) SearchByName(name string) []Book {
+	newBookList := []Book{}
+	for _, v := range bookList {
+		lowerBookName := strings.ToLower(v.Name)
+		lowerName := strings.ToLower(name)
+		if strings.Contains(lowerBookName, lowerName) {
 			newBookList = append(newBookList, v)
 		}
 	}
 	return newBookList
 }
 
-func (b Book) Delete(id int){
-	fmt.Println(b)
+func (b Book) DeleteById(id int) {
+	var deletedBook Book
+	for i, v := range bookList {
+		if v.BookID == id {
+			deletedBook = v
+			bookList = append(bookList[:i], bookList[i+1:]...)
+			break
+		}
+	}
+	fmt.Println("Silinen Kitap", deletedBook)
+	fmt.Println("Yeni Liste:", bookList)
 }
 
-func (b Book) Buy(id int) Book{
+func (b Book) Buy(id int) Book {
 	return b
 }

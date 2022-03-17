@@ -6,7 +6,7 @@ type IProduct interface {
 	AddList()
 	SearchById(id int) IProduct
 	SearchByName(name string) []IProduct
-	Delete(id int)
+	DeleteById(id int)
 	Buy(id int) IProduct
 }
 
