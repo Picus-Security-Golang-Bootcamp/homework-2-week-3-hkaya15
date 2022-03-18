@@ -15,13 +15,17 @@ const (
 	createBook = "1"
 	quit       = "q"
 	getList    = "2"
+	searching  = "3"
+	get        = "4"
+	delete     = "5"
+	buy        = "6"
 )
 
 func GetUI() {
 	newBook := book.Book{}
 	for {
 		fmt.Println("\n*** Book Systems ***")
-		fmt.Print("\nPress '1' to create a new Book\nPress '2' to see all list\nPress 'q' to exit\n")
+		fmt.Print("\nPress '1' to create a new Book\nPress '2' to see all list\nPress '3' to search by name\nPress '4' to search by id\nPress '5' to delete by id\nPress '6' to buy by id and number\nPress 'q' to exit\n")
 		scanner, err := getInput()
 		checkError(err)
 		result := scanner.Text()
@@ -72,6 +76,37 @@ func GetUI() {
 			readList(list)
 		} else if strings.ToLower(result) == quit {
 			break
+		} else if result == searching {
+			fmt.Print("Kitap İsmi Giriniz: ")
+			scanner, _ = getInput()
+			value := scanner.Text()
+			book := newBook.SearchByName(value)
+			fmt.Println(book)
+		} else if result == get {
+			fmt.Print("Kitap ID'si Giriniz: ")
+			scanner, _ = getInput()
+			value := scanner.Text()
+			newVal, _ := strconv.Atoi(value)
+			book := newBook.SearchById(newVal)
+			fmt.Println(book)
+		} else if result == delete {
+			fmt.Print("Kitap ID'si Giriniz: ")
+			scanner, _ = getInput()
+			value := scanner.Text()
+			newVal, _ := strconv.Atoi(value)
+			newBook.DeleteById(newVal)
+		} else if result == buy {
+			fmt.Print("Kitap ID'si Giriniz: ")
+			scanner, _ = getInput()
+			value := scanner.Text()
+			bookId, _ := strconv.Atoi(value)
+
+			fmt.Print("Adet Giriniz: ")
+			scanner, _ = getInput()
+			value1 := scanner.Text()
+			quantity, _ := strconv.Atoi(value1)
+
+			newBook.BuyById(bookId, quantity)
 		} else {
 			fmt.Println("Lütfen girdiğiniz değeri kontrol edin!")
 			continue
