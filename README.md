@@ -55,5 +55,12 @@ go run main.go buy <bookID> <quantity>
 go run main.go buy -bookID 2 -quantity 10
 ```
 
+***
+## UI (Optional)
+There is basic UI(It's optional)
+
+<img src="img/ui.png"/>
+***
+
 ## License
 [MIT](https://mit-license.org)
