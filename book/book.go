@@ -72,26 +72,40 @@ func (b Book) DeleteById(id int) {
 			break
 		}
 	}
-	fmt.Println("Silinen Kitap", deletedBook)
-	fmt.Println("Yeni Liste:", bookList)
+	turkishLira := string(rune(8378))
+	if deletedBook.BookID == 0 {
+		fmt.Println("Bu Id'de bir kitap bulunmamaktadır")
+	} else {
+		book := fmt.Sprintf("\n\tKitap ID'si: %v\n \tKitap Adı: %s\n \tSayfa Sayısı: %v\n \tStock Sayısı %v\n \tFiyat: %.2f %v\n \tStok Kodu: %v\n \tISBN : %v\n \tYazar Adı : %s\n \tYazar ID'si : %v\n", deletedBook.BookID, deletedBook.Name, deletedBook.Page, deletedBook.StockCount, deletedBook.Price, turkishLira, deletedBook.StockID, deletedBook.ISBN, deletedBook.Author.Name, deletedBook.Author.ID)
+
+		fmt.Println("\nSilinen Kitap:\n", book)
+		fmt.Println("Yeni Liste:")
+		for _, v := range bookList {
+			book := fmt.Sprintf("\n\tKitap ID'si: %v\n \tKitap Adı: %s\n \tSayfa Sayısı: %v\n \tStock Sayısı %v\n \tFiyat: %.2f %v\n \tStok Kodu: %v\n \tISBN : %v\n \tYazar Adı : %s\n \tYazar ID'si : %v\n", v.BookID, v.Name, v.Page, v.StockCount, v.Price, turkishLira, v.StockID, v.ISBN, v.Author.Name, v.Author.ID)
+			fmt.Println(book)
+		}
+	}
+
 }
 
 func (b Book) BuyById(id int, count int) {
 	var updatedBook *Book
-	for i,v := range bookList{
-		if v.BookID==id{
-			result:=v.StockCount-count
-			if result>=0{
-				v.StockCount=result
-				updatedBook=&v
-				bookList[i]=*updatedBook
+	for i, v := range bookList {
+		if v.BookID == id {
+			result := v.StockCount - count
+			if result >= 0 {
+				v.StockCount = result
+				updatedBook = &v
+				bookList[i] = *updatedBook
 				break
 			}
 			fmt.Println("Yeterli sayıda kitap bulunmamaktadır")
 		}
 	}
-	if updatedBook != nil{
-		fmt.Println(*updatedBook)
+	if updatedBook != nil {
+		turkishLira := string(rune(8378))
+		book := fmt.Sprintf("\n\tKitap ID'si: %v\n \tKitap Adı: %s\n \tSayfa Sayısı: %v\n \tStock Sayısı %v\n \tFiyat: %.2f %v\n \tStok Kodu: %v\n \tISBN : %v\n \tYazar Adı : %s\n \tYazar ID'si : %v\n", updatedBook.BookID, updatedBook.Name, updatedBook.Page, updatedBook.StockCount, updatedBook.Price, turkishLira, updatedBook.StockID, updatedBook.ISBN, updatedBook.Author.Name, updatedBook.Author.ID)
+		fmt.Println(book)
 	}
-	
+
 }
