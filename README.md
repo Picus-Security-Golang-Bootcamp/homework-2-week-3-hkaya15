@@ -1,63 +1,59 @@
-## Homework | Week 3
-`Not: Ödevi yeni bir repoya ekleyeceksiniz. Var olan reponuzda bir güncelleme olmayacak. "homework-2..." şeklinde yeni bir repo üzerinde çalışacaksınız.`
+# Week 3 | Homework
+This work is the third week of the [Picus Security](https://www.picussecurity.com) Golang Backend Web Development Bootcamp
+* It has added to getting book list feature
+* It has added to searching by book name feature
+* It has added to returning by book id feature
+* It has added to deleting by book id feature
+* It has added to buying by book id and number of book feature
+* It has added to usage feature
 
+I have written Medium article about the [Understanding Concurrency](https://medium.com/@kayahuseyin/understanding-concurrency-b79f928aaf76)
 
-Elimizde bir kitap listesi var. 
-Kitap alanları şöyle;
+## Installation
+```bash
+git clone https://github.com/Picus-Security-Golang-Bootcamp/homework-2-week-3-hkaya15.git
 ```
-- Kitap ID
-- Kitap Adı
-- Sayfa Sayısı
-- Stok Sayısı
-- Fiyatı
-- Stock Kodu
-- ISBN
-- Yazar bilgisi (ID ve İsim)
-```
 
-1. Tüm kitapları listele (list)
-2. Verilen girdi hangi kitap isimlerinde geçiyorsa o kitapları listele (search)
-3. ID'ye göre kitabı yazdır
-4. IDsi verilen kitabı sil. (Silinen kitabın ID'ye göre geliyor olması gerekiyor.)
-5. IDsi verilen kitabı istenilen adet kadar satın al ve kitabın son bilgilerini ekrana yazdır.
+## Usage
 
-Yanlış komut girildiğinde ekrana usage'ı yazdıracak. 
+### List Command
+```go
+// It returns book list
 
-
-Concurrency ile ilgili medium yazısı yazılacak. 
-
-### list command
-```
 go run main.go list
 ```
 
-### search command 
-```
+### Search Command 
+```go
+// ıt returns the book that searched by book name
+
 go run main.go search <bookName>
 go run main.go search Lord of the Ring: The Return of the King
 ```
 
-### get command
-```
+### Get Command
+```go
+// It returns the book that got by book id
+
 go run main.go get <bookID>
-go run main.go get 5
+go run main.go get -id 5
 ```
 
-### delete command
-```
+### Delete Command
+```go
+// It returns the book that deleted by book id and new book list
+
 go run main.go delete <bookID>
-go run main.go delete 5
+go run main.go delete -id 5
 ```
 
-### buy command
-```
+### Buy Command
+```go
+// It returns the book that bought by book id and quantity
+
 go run main.go buy <bookID> <quantity>
-go run main.go buy 5 2
+go run main.go buy -bookID 2 -quantity 10
 ```
 
-###
-# Requirements:
-- README
-- No third party package(s)
-- Everything should be in English (Comments, Function names, File names, etc.)
-- Use structs not maps
+## License
+[MIT](https://mit-license.org)
